@@ -1,0 +1,10 @@
+/* 기존 내용 모두 삭제하고 이것으로 교체 */
+.app {
+  text-align: center;
+  padding: 2rem;
+}
+
+.app h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
