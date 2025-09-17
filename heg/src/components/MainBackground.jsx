@@ -1,7 +1,7 @@
 const MainBackground = () => {
   return (
     <section
-      className="w-screen h-screen bg-cover bg-center bg-no-repeat relative flex items-end overflow-hidden"
+      className="w-screen h-screen bg-cover bg-center bg-no-repeat relative flex items-end justify-end overflow-hidden"
       style={{
         backgroundImage: "url('/images/MainBackground.png')",
       }}
@@ -9,8 +9,8 @@ const MainBackground = () => {
       {/* 오버레이 */}
       <div className="absolute inset-0 bg-gray-400/10"></div>
 
-      {/* 컨텐츠 */}
-      <div className="relative z-10 w-full p-4 sm:p-6 md:p-12 lg:p-16 xl:p-24">
+      {/* 컨텐츠 - 오른쪽 하단으로 이동 */}
+      <div className="relative z-10 p-4 sm:p-6 md:p-12 lg:p-16 xl:p-24">
         <div className="bg-black/40 backdrop-blur-sm rounded-[20px] sm:rounded-[24px] md:rounded-[30px] lg:rounded-[36px] px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 lg:px-12 lg:py-6 max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-xl xl:max-w-2xl">
           <h1 className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold mb-1 sm:mb-2 md:mb-3 text-left">
             하나의 소리, 두개의 그림
