@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import ImageCarousel from "./components/ImageCarousel";
 import MainBackground from "./components/MainBackground";
 import ProductCarousel from "./components/ProductCarousel";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -46,9 +47,12 @@ const App = () => {
                 <ProductCarousel />
               </div>
 
-              {/* 섹션 3: 이미지 갤러리 */}
-              <div className="section">
-                <ImageCarousel />
+              {/* 섹션 3: 이미지 갤러리 + 푸터 */}
+              <div className="section flex flex-col">
+                <div className="flex-1">
+                  <ImageCarousel />
+                </div>
+                <Footer />
               </div>
             </ReactFullpage.Wrapper>
           );
