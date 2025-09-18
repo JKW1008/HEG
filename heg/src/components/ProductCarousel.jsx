@@ -60,7 +60,7 @@ const ProductCarousel = () => {
   ];
 
   return (
-    <section className="w-screen h-screen flex flex-col justify-center items-center py-12 px-8">
+    <section className="w-screen h-screen flex flex-col justify-center items-center py-24 px-24">
       <div className="max-w-[1920px] w-full flex-1 flex flex-col justify-center">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
@@ -68,11 +68,11 @@ const ProductCarousel = () => {
           </h2>
         </div>
 
-        <div className="relative flex-1 flex items-center px-4">
+        <div className="relative flex-1 flex items-center px-4 py-6">
           <Swiper
             modules={[Navigation, Autoplay]}
             slidesPerView={4}
-            spaceBetween={16}
+            spaceBetween={32}
             loop={true}
             navigation={{
               prevEl: ".swiper-button-prev-custom",
@@ -81,23 +81,27 @@ const ProductCarousel = () => {
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
+              pauseOnMouseEnter: true,
             }}
+            speed={600}
+            loopedSlides={8}
+            centeredSlides={false}
             breakpoints={{
               320: {
                 slidesPerView: 1,
-                spaceBetween: 10,
+                spaceBetween: 20,
               },
               640: {
                 slidesPerView: 2,
-                spaceBetween: 12,
+                spaceBetween: 24,
               },
               1024: {
                 slidesPerView: 3,
-                spaceBetween: 16,
+                spaceBetween: 28,
               },
               1280: {
                 slidesPerView: 4,
-                spaceBetween: 16,
+                spaceBetween: 32,
               },
             }}
             className="product-swiper w-full"
@@ -105,7 +109,7 @@ const ProductCarousel = () => {
             {items.map((item) => (
               <SwiperSlide key={item.id}>
                 <div
-                  className={`${item.bgColor} rounded-[3rem] shadow-lg border-4 ${item.borderColor} aspect-[200/240] flex flex-col items-center pt-[4.17%] px-[5%]`}
+                  className={`${item.bgColor} rounded-[3rem] shadow-lg border-4 ${item.borderColor} aspect-[200/240] flex flex-col items-center pt-[4.17%] px-[5%] transition-all duration-300`}
                 >
                   {/* 내부 정사각형 컨테이너 - 90% 너비 (180/200) */}
                   <div className="bg-white rounded-[2rem] flex items-center justify-center aspect-square w-full">
@@ -137,20 +141,32 @@ const ProductCarousel = () => {
         </div>
 
         {/* ProductInformation을 하단에 배치 */}
-        <div className="mt-12 px-4">
+        <div className="mt-8 px-4">
           <ProductInformation />
         </div>
       </div>
 
       {/* Swiper 커스텀 스타일 */}
       <style jsx>{`
+        /* 캐러셀 컨테이너 - 좌우만 숨기고 상하는 보이게 */
+        .relative.flex-1 {
+          overflow-x: hidden;
+          overflow-y: visible;
+        }
+
         .product-swiper {
-          padding: 0 !important;
+          padding: 20px 0 !important;
           height: auto;
+          overflow: visible;
         }
 
         .product-swiper .swiper-wrapper {
           align-items: stretch;
+          overflow: visible;
+        }
+
+        .product-swiper .swiper-slide {
+          overflow: visible;
         }
 
         /* 기본 네비게이션 버튼 숨기기 */
@@ -159,13 +175,24 @@ const ProductCarousel = () => {
           display: none;
         }
 
-        /* 슬라이드 호버 효과 - GPU 가속화 최적화 */
-        .product-swiper .swiper-slide {
-          transition: box-shadow 0.2s ease;
+        /* 카드 호버 효과 - 둥근 영역에만 적용 */
+        .product-swiper .swiper-slide > div {
+          transition: all 0.3s ease;
+          cursor: pointer;
         }
 
-        .product-swiper .swiper-slide:hover {
-          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        .product-swiper .swiper-slide > div:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+          border-width: 6px;
+          z-index: 10;
+          position: relative;
+        }
+
+        /* 내부 알파벳 텍스트 hover 효과 */
+        .product-swiper .swiper-slide > div:hover .bg-white > div {
+          transform: rotate(12deg) scale(1.1);
+          color: #374151;
         }
       `}</style>
     </section>
