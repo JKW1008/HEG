@@ -31,7 +31,7 @@ const ImageCarousel = () => {
   ];
 
   return (
-    <section className="w-screen h-screen relative bg-gray-100">
+    <section className="w-screen h-screen relative bg-gray-100 flex items-center justify-center">
       <Swiper
         modules={[Navigation, Autoplay]}
         slidesPerView={1}
@@ -53,7 +53,7 @@ const ImageCarousel = () => {
         threshold={20}
         resistance={true}
         resistanceRatio={0.5}
-        className="w-full h-full"
+        className="w-full h-4/5"
       >
         {images.map((image) => (
           <SwiperSlide key={image.id}>
@@ -61,7 +61,7 @@ const ImageCarousel = () => {
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-4/5 h-4/5 object-cover"
+                className="w-4/5 h-4/5 object-cover object-center"
               />
             </div>
           </SwiperSlide>

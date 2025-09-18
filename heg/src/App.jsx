@@ -7,11 +7,10 @@ import ProductCarousel from "./components/ProductCarousel";
 const App = () => {
   return (
     <>
-      {/* 고정 헤더 */}
-      <Header />
+
 
       <ReactFullpage
-        licenseKey={'YOUR_KEY_HERE'}
+        licenseKey={'OPEN-SOURCE-GPLV3-LICENSE'}
         scrollingSpeed={700}
         easing={'easeInOutCubic'}
         easingcss3={'ease-in-out'}
@@ -31,11 +30,14 @@ const App = () => {
         keyboardScrolling={true}
         animateAnchor={true}
         recordHistory={true}
-        render={({ state, fullpageApi }) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
-              {/* 섹션 1: 메인 배경 */}
-              <div className="section">
+              {/* 섹션 1: 메인 배경 + 헤더 */}
+              <div className="section relative">
+                <div className="absolute top-0 left-0 right-0 z-50">
+                  <Header />
+                </div>
                 <MainBackground />
               </div>
 
@@ -52,6 +54,13 @@ const App = () => {
           );
         }}
       />
+
+      {/* fullPage.js 워터마크 숨기기 */}
+      <style jsx global>{`
+        .fp-watermark {
+          display: none !important;
+        }
+      `}</style>
     </>
   );
 };

@@ -5,7 +5,7 @@ import shoppingBag from "../assets/images/Shopping bag.png";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 w-full z-50  transition-all duration-300">
+    <header className="w-full">
       <div className="max-w-[1920px] mx-auto px-12 py-8 h-auto flex items-center justify-between">
         <div id="logoContainer" className="flex items-center">
           <img
