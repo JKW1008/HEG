@@ -37,25 +37,23 @@ const ImageCarousel = () => {
         slidesPerView={1}
         spaceBetween={0}
         loop={true}
-        speed={1200}
+        speed={800}
         navigation={{
           prevEl: ".image-nav-prev",
           nextEl: ".image-nav-next",
         }}
         autoplay={{
-          delay: 5000,
+          delay: 4000,
           disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         }}
         touchStartPreventDefault={false}
-        touchMoveStopPropagation={false}
         allowTouchMove={true}
-        touchRatio={1}
-        touchAngle={45}
-        threshold={10}
+        touchRatio={0.8}
+        threshold={20}
+        resistance={true}
+        resistanceRatio={0.5}
         className="w-full h-full"
-        style={{
-          touchAction: "pan-y pinch-zoom",
-        }}
       >
         {images.map((image) => (
           <SwiperSlide key={image.id}>
@@ -118,21 +116,18 @@ const ImageCarousel = () => {
           display: none;
         }
 
-        /* 슬라이드 전환 효과 */
+        /* 슬라이드 전환 효과 - GPU 가속화 최적화 */
         .swiper-slide {
-          transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-          transform: translateZ(0);
-          backface-visibility: hidden;
+          transition: opacity 0.8s ease-in-out;
+          will-change: auto;
         }
 
         .swiper-slide-active {
           opacity: 1;
-          transform: scale(1) translateZ(0);
         }
 
         .swiper-slide:not(.swiper-slide-active) {
-          opacity: 0.8;
-          transform: scale(0.98) translateZ(0);
+          opacity: 0.9;
         }
       `}</style>
     </section>

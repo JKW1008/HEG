@@ -159,13 +159,13 @@ const ProductCarousel = () => {
           display: none;
         }
 
-        /* 슬라이드 호버 효과 */
+        /* 슬라이드 호버 효과 - GPU 가속화 최적화 */
         .product-swiper .swiper-slide {
-          transition: transform 0.3s ease;
+          transition: box-shadow 0.2s ease;
         }
 
         .product-swiper .swiper-slide:hover {
-          transform: translateY(-4px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
       `}</style>
     </section>
