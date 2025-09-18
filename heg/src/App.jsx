@@ -1,8 +1,8 @@
 // App.jsx 예시
 import Header from "./components/Header";
+import ImageCarousel from "./components/ImageCarousel";
 import MainBackground from "./components/MainBackground";
 import ProductCarousel from "./components/ProductCarousel";
-import ImageCarousel from "./ImageCarousel";
 
 const App = () => {
   return (
@@ -37,6 +37,7 @@ const App = () => {
 
         main {
           scroll-behavior: smooth;
+          scroll-snap-type: y mandatory;
         }
 
         /* 모바일에서 더 부드러운 스크롤 */
@@ -48,7 +49,8 @@ const App = () => {
 
         /* 섹션 전환 애니메이션 */
         section {
-          transition: transform 0.3s ease-out;
+          scroll-snap-align: start;
+          transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
       `}</style>
     </div>

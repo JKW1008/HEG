@@ -60,7 +60,7 @@ const ProductCarousel = () => {
   ];
 
   return (
-    <section className="w-screen h-screen bg-gray-100 flex flex-col justify-center items-center py-12 px-8">
+    <section className="w-screen h-screen flex flex-col justify-center items-center py-12 px-8">
       <div className="max-w-[1920px] w-full flex-1 flex flex-col justify-center">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
