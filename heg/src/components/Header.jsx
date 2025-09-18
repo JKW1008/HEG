@@ -5,7 +5,7 @@ import shoppingBag from "../assets/images/Shopping bag.png";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 w-full z-50  transition-all duration-300">
+    <header className="w-full">
       <div className="max-w-[1920px] mx-auto px-12 py-8 h-auto flex items-center justify-between">
         <div id="logoContainer" className="flex items-center">
           <img
@@ -23,33 +23,37 @@ const Header = () => {
               <li>
                 <a
                   href="#home"
-                  className="font-bold text-black hover:text-black/80 transition-colors duration-200 text-lg"
+                  className="font-bold text-black hover:scale-110 transition-all duration-300 text-lg relative group"
                 >
                   <strong>HOME</strong>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a
                   href="#shop"
-                  className="text-black/90 hover:text-black transition-colors duration-200 text-lg"
+                  className="text-black/90 hover:scale-110 transition-all duration-300 text-lg relative group"
                 >
                   SHOP
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a
                   href="#about"
-                  className="text-black/90 hover:text-black transition-colors duration-200 text-lg"
+                  className="text-black/90 hover:scale-110 transition-all duration-300 text-lg relative group"
                 >
                   PAGES
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
                 <a
                   href="#contact"
-                  className="text-black/90 hover:text-black transition-colors duration-200 text-lg"
+                  className="text-black/90 hover:scale-110 transition-all duration-300 text-lg relative group"
                 >
                   FEATURES
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
             </ul>
@@ -58,12 +62,12 @@ const Header = () => {
             <img
               src={searchIcon}
               alt=""
-              className="h-6 w-auto object-contain"
+              className="h-6 w-auto object-contain cursor-pointer hover:scale-110 transition-transform duration-200"
             />
             <img
               src={shoppingBag}
               alt=""
-              className="h-6 w-auto object-contain"
+              className="h-6 w-auto object-contain cursor-pointer hover:scale-110 transition-transform duration-200"
             />
           </div>
         </div>
