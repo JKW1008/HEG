@@ -31,12 +31,13 @@ const ImageCarousel = () => {
   ];
 
   return (
-    <section className="w-screen h-screen relative">
+    <section className="w-screen h-screen relative bg-gray-100">
       <Swiper
         modules={[Navigation, Autoplay]}
         slidesPerView={1}
         spaceBetween={0}
         loop={true}
+        speed={1200}
         navigation={{
           prevEl: ".image-nav-prev",
           nextEl: ".image-nav-next",
@@ -45,15 +46,24 @@ const ImageCarousel = () => {
           delay: 5000,
           disableOnInteraction: false,
         }}
+        touchStartPreventDefault={false}
+        touchMoveStopPropagation={false}
+        allowTouchMove={true}
+        touchRatio={1}
+        touchAngle={45}
+        threshold={10}
         className="w-full h-full"
+        style={{
+          touchAction: "pan-y pinch-zoom",
+        }}
       >
         {images.map((image) => (
           <SwiperSlide key={image.id}>
-            <div className="w-full h-full">
+            <div className="w-full h-full flex justify-center items-center">
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover"
+                className="w-4/5 h-4/5 object-cover"
               />
             </div>
           </SwiperSlide>
@@ -110,7 +120,19 @@ const ImageCarousel = () => {
 
         /* 슬라이드 전환 효과 */
         .swiper-slide {
-          transition: opacity 0.5s ease-in-out;
+          transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          transform: translateZ(0);
+          backface-visibility: hidden;
+        }
+
+        .swiper-slide-active {
+          opacity: 1;
+          transform: scale(1) translateZ(0);
+        }
+
+        .swiper-slide:not(.swiper-slide-active) {
+          opacity: 0.8;
+          transform: scale(0.98) translateZ(0);
         }
       `}</style>
     </section>
